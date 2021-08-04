@@ -1,22 +1,28 @@
 /* 
-	CCPal = C Code Performance Analysis Library 
- 
-	Author: Paolo Fabio Zaino
-
-	Description:
-	CCPal is a SIMPLE  C Code runtime  Performance Analysis Library
-	This  simple  library allow the user to measure  code execution
-	time  and  works on a number of  Operating Systems natively, so
-	you just need to add it to your project and use it.
-
-	At  the  moment  this  library  seems to be working well on ALL 
-	tested  Intel based Linux Distro  (RHEL,  CentOS,  PacketLinux, 
-	ScientificLinux,  Debian, Ubuntu, KALI) and all modern releases
-	of Apple MacOS.
-
-	This library is distributed under GPLv2 license.
-	
-*/
+ *        Name: CCPal = C Code Performance Analysis Library 
+ *     Purpose: Measure performance (in terms of execution time) of
+ *              C routines (useful to measure perfs as Unit Test)
+ * 
+ *    	Author: Paolo Fabio Zaino
+ *     License: Copyright by Paolo Fabio Zaino, all rights reserved
+ *              Distributed under GPL v2 license
+ *
+ * Description:
+ * CCPal is a SIMPLE  C Code runtime  Performance Analysis Library
+ * This  simple  library allow the user to measure  code execution
+ * time  and  works on a number of  Operating Systems natively, so
+ * you just need to add it to your project and use it.
+ *
+ * At  the  moment  this  library  seems to be working well on ALL 
+ * tested  Intel based Linux Distro  (RHEL,  CentOS,  PacketLinux, 
+ * ScientificLinux,  Debian, Ubuntu, KALI) and all modern releases
+ * of Apple MacOS.
+ */
+#ifndef CCPAL_H_
+#define CCPAL_H_
+#if defined(_MSC_VER) && (_MSC_VER >= 1020)
+#pragma once
+#endif
 
 #include <time.h>
 #include <sys/time.h>
@@ -84,3 +90,5 @@
 #endif
 
 #define CCPAL_REPORT_ANALYSIS fprintf (stdout, "We have spent %lf seconds executing previous code section.\n", elaps_s + ((double)elaps_ns) / 1.0e9 );
+
+#endif  // CCPAL_H_
